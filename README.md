@@ -24,3 +24,37 @@ Cada campo esta descrito abaixo:
 ## Atendente - Painel
 
 Após receber a mensagem de retorno do  módulo cliente, o módulo atendente irá enviar a mensagem recebida diretamentet para o módulo painel.
+
+# Sequência de comandos usada pelo módulo atendente
+
+**Se conectar a rede:**
+
+```
+AT+CWMODE=1
+AT+CWJAP_CUR="dlink",""
+```
+
+**Aguardar respostas:**
+
+```
+AT+CIPMUX=1 
+AT+CIPSERVER=1,1000
+```
+
+**Se connectar com o cliente:**
+
+```
+AT+CIPSTART=”TCP”,”192.168.0.100”,1000
+AT+CIPSEND=1
+<guiche>
+AT+CIPCLOSE
+```
+
+**Se connectar com o painel:**
+
+```
+AT+CIPSTART=”TCP”,”192.168.0.102”,1000
+AT+CIPSEND=3
+<guiche><ticket>
+AT+CIPCLOSE
+```
