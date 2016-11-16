@@ -15,8 +15,8 @@ Por sua vez ao receber o byte da mensagem com o número do guichê  o **módulo 
 Cada campo esta descrito abaixo:
 
 * **guiche** - Número do guichê que esta ocioso, ele deve ser apenas _1-byte_. Inicialmente, temos dois guichês:
-  * Caixa normal: `<1>`;
-  * Gerente: `<2>`;
+  * Caixa normal: `<0x01>`;
+  * Gerente: `<0x02>`;
 * **ticket** - Número que do próximo cliente, deve ser apenas _2-bytes_:
   * Comum: 0-999;
   * Preferencial: 1000-1999;
